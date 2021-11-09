@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM bitnami/minideb:bullseye
 
 ARG FTP_UID=48
 ARG FTP_GID=48
@@ -9,7 +9,7 @@ RUN set -x \
 
 RUN set -x \
   && apt-get update \
-  && apt-get install -y --no-install-recommends vsftpd db5.3-util whois \
+  && apt-get install -y --no-install-recommends vsftpd db5.3-util whois openssl \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   ;
